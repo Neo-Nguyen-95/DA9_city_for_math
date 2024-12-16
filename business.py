@@ -116,11 +116,17 @@ class ExamAnalyzer:
     def get_two_sample_z_statistic(self, category, region1, region2):
         df = self.get_stat_by_region(category=category)
         s1_mean = df.at[region1, 'mean']
-        s1_std = df.at[region1, 'std']
+        # s1_std = df.at[region1, 'std']
+        s1_std = self.get_population_statistic(
+            category=category, stat='std'
+            )
         s1_n = df.at[region1, 'count']
         
         s2_mean = df.at[region2, 'mean']
-        s2_std = df.at[region2, 'std']
+        # s2_std = df.at[region2, 'std']
+        s2_std = self.get_population_statistic(
+            category=category, stat='std'
+            )
         s2_n = df.at[region2, 'count']
         
         z = (
