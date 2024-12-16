@@ -31,7 +31,8 @@ ea.get_two_sample_z_statistic(
 
 
 # %% OVERALL SCIENCE MEAN SCORE ANALYSIS
-ea.get_overall_mean_median(category='khtn')
+ea.get_population_statistic(category='khtn', stat='count')
+
 
 fig, ax = plt.subplots(figsize=(6, 4))
 sns.histplot(data=ea.df_score[ea.df_score['category'] == 'khtn'],
@@ -45,7 +46,7 @@ plt.show();
 
 fig, ax = plt.subplots(figsize=(6, 4))
 sns.histplot(data=ea.get_stat_by_region(category='khtn'), 
-             x='z_statistic'
+             x='mean'
              )
 plt.show();
 
